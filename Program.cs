@@ -44,7 +44,7 @@ namespace RedisService
             configFilePath = Path.GetFullPath(configFilePath);
 
             var diskSymbol = configFilePath[..configFilePath.IndexOf(":")];
-            var fileConf = configFilePath.Replace(diskSymbol + ":", "/cygdrive/" + diskSymbol).Replace("\\", "/");
+            var fileConf = configFilePath.Replace(diskSymbol + ":", "").Replace("\\", "/");
 
             string fileName = Path.Combine(basePath, "redis-server.exe").Replace("\\", "/");
             string arguments = $"\"{fileConf}\"";
